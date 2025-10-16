@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 SaaS - UI Component Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2667cc;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --success: #06d6a0;
+            --warning: #ffd166;
+            --danger: #ef476f;
+            --dark: #1a1b25;
+            --dark-light: #2d3047;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f1117;
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 1px solid var(--gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #d9005e;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-lg {
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(58, 134, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .card-body {
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0f1117 0%, #1a1b25 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Components Section */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #3a3f5c;
+            background-color: #1e2030;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #3a3f5c;
+            background-color: #1e2030;
+            color: var(--light);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Alert Styles */
+        .alert {
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .alert-success {
+            background-color: rgba(6, 214, 160, 0.2);
+            border-left: 4px solid var(--success);
+        }
+
+        .alert-warning {
+            background-color: rgba(255, 209, 102, 0.2);
+            border-left: 4px solid var(--warning);
+        }
+
+        .alert-danger {
+            background-color: rgba(239, 71, 111, 0.2);
+            border-left: 4px solid var(--danger);
+        }
+
+        .alert-info {
+            background-color: rgba(58, 134, 255, 0.2);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .badge-secondary {
+            background-color: var(--gray);
+            color: white;
+        }
+
+        .badge-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .badge-warning {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+
+        .badge-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        /* Progress Bar */
+        .progress {
+            height: 8px;
+            background-color: #2d3047;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-primary {
+            background-color: var(--primary);
+        }
+
+        .progress-success {
+            background-color: var(--success);
+        }
+
+        .progress-warning {
+            background-color: var(--warning);
+        }
+
+        .progress-danger {
+            background-color: var(--danger);
+        }
+
+        /* Tabs */
+        .tabs {
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-header {
+            display: flex;
+            border-bottom: 1px solid #3a3f5c;
+        }
+
+        .tab-link {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-link.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-content {
+            padding: 1.5rem 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #3a3f5c;
+            color: var(--gray);
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-success {
+            color: var(--success);
+        }
+
+        .text-warning {
+            color: var(--warning);
+        }
+
+        .text-danger {
+            color: var(--danger);
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>Web3SaaS</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Components</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Pricing</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn btn-secondary">Sign In</button>
+                    <button class="btn btn-primary" id="connectWalletBtn">
+                        <i class="fas fa-wallet"></i> Connect Wallet
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Web3 SaaS Component Library</h1>
+            <p>A comprehensive, reusable UI component system designed specifically for Web3 applications. Build faster with consistent, accessible components.</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket"></i> Get Started
+                </button>
+                <button class="btn btn-secondary btn-lg">
+                    <i class="fas fa-book"></i> Documentation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">UI Components</h2>
+            
+            <div class="components-grid">
+                <!-- Buttons Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Buttons</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex" style="flex-wrap: wrap; gap: 10px;">
+                            <button class="btn btn-primary">Primary</button>
+                            <button class="btn btn-secondary">Secondary</button>
+                            <button class="btn btn-accent">Accent</button>
+                            <button class="btn btn-success">Success</button>
+                            <button class="btn btn-warning">Warning</button>
+                            <button class="btn btn-danger">Danger</button>
+                        </div>
+                        <div class="mt-2 d-flex" style="flex-wrap: wrap; gap: 10px;">
+                            <button class="btn btn-primary btn-sm">Small</button>
+                            <button class="btn btn-primary">Regular</button>
+                            <button class="btn btn-primary btn-lg">Large</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Interactive</span>
+                        <span class="badge badge-primary">Verified</span>
+                    </div>
+                </div>
+
+                <!-- Alerts Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Alerts</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Transaction completed successfully!</div>
+                        </div>
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>Your wallet balance is running low.</div>
+                        </div>
+                        <div class="alert alert-danger">
+                            <i class="fas fa-times-circle"></i>
+                            <div>Transaction failed. Please try again.</div>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <div>New feature available in v2.1.</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Status Messages</span>
+                        <span class="badge badge-success">Live</span>
+                    </div>
+                </div>
+
+                <!-- Form Elements Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Form Elements</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Wallet Address</label>
+                            <input type="text" class="form-control" placeholder="0x1a2b3c4d5e6f7g8h9i0j">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Network</label>
+                            <select class="form-select">
+                                <option>Ethereum Mainnet</option>
+                                <option>Polygon</option>
+                                <option>Binance Smart Chain</option>
+                                <option>Avalanche</option>
+                                <option>Arbitrum</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember my wallet</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="light" name="theme">
+                                <label for="light">Light Theme</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="dark" name="theme" checked>
+                                <label for="dark">Dark Theme</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Input Controls</span>
+                        <span class="badge badge-warning">Tested</span>
+                    </div>
+                </div>
+
+                <!-- Progress & Badges Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Progress & Badges</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <div class="d-flex justify-between align-center mb-1">
+                                <span>Storage Usage</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-primary" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-between align-center mb-1">
+                                <span>API Requests</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-warning" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-between align-center mb-1">
+                                <span>Bandwidth</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-danger" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="d-flex" style="flex-wrap: wrap; gap: 8px; margin-top: 1.5rem;">
+                            <span class="badge badge-primary">Web3</span>
+                            <span class="badge badge-secondary">SaaS</span>
+                            <span class="badge badge-success">Active</span>
+                            <span class="badge badge-warning">Pending</span>
+                            <span class="badge badge-danger">Critical</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Visual Indicators</span>
+                        <span class="badge badge-primary">Updated</span>
+                    </div>
+                </div>
+
+                <!-- Tabs Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Tabs</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-folder"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab-header">
+                                <div class="tab-link active" data-tab="tab1">Dashboard</div>
+                                <div class="tab-link" data-tab="tab2">Analytics</div>
+                                <div class="tab-link" data-tab="tab3">Settings</div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab1">
+                                    <p>Welcome to your dashboard. Here you can manage your Web3 applications and view key metrics.</p>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <p>Analytics data will appear here. Track usage, performance, and user engagement.</p>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <p>Configure your application settings, API keys, and notification preferences.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Navigation</span>
+                        <span class="badge badge-success">Working</span>
+                    </div>
+                </div>
+
+                <!-- Modal Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Modal</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-window-restore"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Click the button below to open a modal dialog.</p>
+                        <button class="btn btn-primary" id="openModalBtn">Open Modal</button>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-primary">Dialog Windows</span>
+                        <span class="badge badge-primary">Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="exampleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Connect Wallet</h3>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Select a wallet to connect to your Web3 SaaS application:</p>
+                <div class="form-group mt-2">
+                    <button class="btn btn-secondary" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+                        <i class="fab fa-metamask"></i> MetaMask
+                    </button>
+                    <button class="btn btn-secondary" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+                        <i class="fas fa-wallet"></i> WalletConnect
+                    </button>
+                    <button class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                        <i class="fab fa-bitcoin"></i> Coinbase Wallet
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer mt-2">
+                <button class="btn btn-primary" style="width: 100%;" id="connectBtn">Connect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Web3SaaS</h3>
+                    <p>Building the future of decentralized applications with powerful, reusable UI components.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Web3SaaS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-link').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and panes
+                document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding pane
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('exampleModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const connectBtn = document.getElementById('connectBtn');
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        connectWalletBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        connectBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            connectWalletBtn.innerHTML = '<i class="fas fa-check"></i> Connected';
+            connectWalletBtn.classList.remove('btn-primary');
+            connectWalletBtn.classList.add('btn-success');
+            
+            // Show success alert
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success';
+            alert.innerHTML = '<i class="fas fa-check-circle"></i> <div>Wallet connected successfully!</div>';
+            document.querySelector('.hero').after(alert);
+            
+            // Remove alert after 5 seconds
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Button hover effects
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Form validation example
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = 'var(--danger)';
+                } else {
+                    this.style.borderColor = 'var(--success)';
+                }
+            });
+        });
+
+        // Progress bar animation on scroll
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        function animateProgressBars() {
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }
+
+        // Animate progress bars when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
