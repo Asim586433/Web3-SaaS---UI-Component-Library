@@ -34,6 +34,9 @@
             background-color: #0f1117;
             color: var(--light);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
@@ -65,6 +68,7 @@
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--primary);
+            text-decoration: none;
         }
 
         .logo i {
@@ -83,7 +87,7 @@
             font-weight: 500;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--primary);
         }
 
@@ -103,6 +107,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -483,7 +488,7 @@
         footer {
             background-color: var(--dark);
             padding: 3rem 0;
-            margin-top: 4rem;
+            margin-top: auto;
         }
 
         .footer-content {
@@ -523,6 +528,199 @@
             color: var(--gray);
         }
 
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding: 2rem 0;
+            min-height: 60vh;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Dashboard Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Documentation Styles */
+        .doc-sidebar {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .doc-nav {
+            list-style: none;
+        }
+
+        .doc-nav li {
+            margin-bottom: 0.75rem;
+        }
+
+        .doc-nav a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .doc-nav a:hover, .doc-nav a.active {
+            color: var(--primary);
+        }
+
+        .doc-content {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+        }
+
+        .doc-section {
+            margin-bottom: 3rem;
+        }
+
+        .doc-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Pricing Styles */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-header {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: var(--primary);
+        }
+
+        .pricing-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #3a3f5c;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Sign In Styles */
+        .auth-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            background-color: var(--dark-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-header h2 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gray);
+        }
+
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Table Styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .table th, .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #3a3f5c;
+        }
+
+        .table th {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
         /* Utility Classes */
         .text-center {
             text-align: center;
@@ -550,6 +748,10 @@
 
         .mb-2 {
             margin-bottom: 2rem;
+        }
+
+        .mt-1 {
+            margin-top: 1rem;
         }
 
         .mt-2 {
@@ -586,6 +788,14 @@
             .components-grid {
                 grid-template-columns: 1fr;
             }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -594,18 +804,18 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">
+                <a href="#" class="logo" data-page="home">
                     <i class="fas fa-cube"></i>
                     <span>Web3SaaS</span>
-                </div>
+                </a>
                 <div class="nav-links">
-                    <a href="#">Dashboard</a>
-                    <a href="#">Components</a>
-                    <a href="#">Documentation</a>
-                    <a href="#">Pricing</a>
+                    <a href="#" data-page="dashboard" class="active">Dashboard</a>
+                    <a href="#" data-page="components">Components</a>
+                    <a href="#" data-page="documentation">Documentation</a>
+                    <a href="#" data-page="pricing">Pricing</a>
                 </div>
                 <div class="nav-actions">
-                    <button class="btn btn-secondary">Sign In</button>
+                    <a href="#" class="btn btn-secondary" data-page="signin">Sign In</a>
                     <button class="btn btn-primary" id="connectWalletBtn">
                         <i class="fas fa-wallet"></i> Connect Wallet
                     </button>
@@ -614,26 +824,350 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Home Page -->
+    <section id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Web3 SaaS Component Library</h1>
+                <p>A comprehensive, reusable UI component system designed specifically for Web3 applications. Build faster with consistent, accessible components.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" data-page="dashboard">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                    <button class="btn btn-secondary btn-lg" data-page="documentation">
+                        <i class="fas fa-book"></i> Documentation
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">UI Components</h2>
+                
+                <div class="components-grid">
+                    <!-- Buttons Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Buttons</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-mouse-pointer"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex" style="flex-wrap: wrap; gap: 10px;">
+                                <button class="btn btn-primary">Primary</button>
+                                <button class="btn btn-secondary">Secondary</button>
+                                <button class="btn btn-accent">Accent</button>
+                                <button class="btn btn-success">Success</button>
+                                <button class="btn btn-warning">Warning</button>
+                                <button class="btn btn-danger">Danger</button>
+                            </div>
+                            <div class="mt-2 d-flex" style="flex-wrap: wrap; gap: 10px;">
+                                <button class="btn btn-primary btn-sm">Small</button>
+                                <button class="btn btn-primary">Regular</button>
+                                <button class="btn btn-primary btn-lg">Large</button>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Interactive</span>
+                            <span class="badge badge-primary">Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Alerts Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Alerts</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Transaction completed successfully!</div>
+                            </div>
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div>Your wallet balance is running low.</div>
+                            </div>
+                            <div class="alert alert-danger">
+                                <i class="fas fa-times-circle"></i>
+                                <div>Transaction failed. Please try again.</div>
+                            </div>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <div>New feature available in v2.1.</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Status Messages</span>
+                            <span class="badge badge-success">Live</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Elements Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Form Elements</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Wallet Address</label>
+                                <input type="text" class="form-control" placeholder="0x1a2b3c4d5e6f7g8h9i0j">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Network</label>
+                                <select class="form-select">
+                                    <option>Ethereum Mainnet</option>
+                                    <option>Polygon</option>
+                                    <option>Binance Smart Chain</option>
+                                    <option>Avalanche</option>
+                                    <option>Arbitrum</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Remember my wallet</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="light" name="theme">
+                                    <label for="light">Light Theme</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="dark" name="theme" checked>
+                                    <label for="dark">Dark Theme</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Input Controls</span>
+                            <span class="badge badge-warning">Tested</span>
+                        </div>
+                    </div>
+
+                    <!-- Progress & Badges Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Progress & Badges</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <div class="d-flex justify-between align-center mb-1">
+                                    <span>Storage Usage</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-primary" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-between align-center mb-1">
+                                    <span>API Requests</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-warning" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-between align-center mb-1">
+                                    <span>Bandwidth</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-danger" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex" style="flex-wrap: wrap; gap: 8px; margin-top: 1.5rem;">
+                                <span class="badge badge-primary">Web3</span>
+                                <span class="badge badge-secondary">SaaS</span>
+                                <span class="badge badge-success">Active</span>
+                                <span class="badge badge-warning">Pending</span>
+                                <span class="badge badge-danger">Critical</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Visual Indicators</span>
+                            <span class="badge badge-primary">Updated</span>
+                        </div>
+                    </div>
+
+                    <!-- Tabs Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Tabs</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-folder"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="tabs">
+                                <div class="tab-header">
+                                    <div class="tab-link active" data-tab="tab1">Dashboard</div>
+                                    <div class="tab-link" data-tab="tab2">Analytics</div>
+                                    <div class="tab-link" data-tab="tab3">Settings</div>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab1">
+                                        <p>Welcome to your dashboard. Here you can manage your Web3 applications and view key metrics.</p>
+                                    </div>
+                                    <div class="tab-pane" id="tab2">
+                                        <p>Analytics data will appear here. Track usage, performance, and user engagement.</p>
+                                    </div>
+                                    <div class="tab-pane" id="tab3">
+                                        <p>Configure your application settings, API keys, and notification preferences.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Navigation</span>
+                            <span class="badge badge-success">Working</span>
+                        </div>
+                    </div>
+
+                    <!-- Modal Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Modal</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-window-restore"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Click the button below to open a modal dialog.</p>
+                            <button class="btn btn-primary" id="openModalBtn">Open Modal</button>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-primary">Dialog Windows</span>
+                            <span class="badge badge-primary">Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Dashboard Page -->
+    <section id="dashboard" class="page-content">
         <div class="container">
-            <h1>Web3 SaaS Component Library</h1>
-            <p>A comprehensive, reusable UI component system designed specifically for Web3 applications. Build faster with consistent, accessible components.</p>
-            <div class="hero-actions">
-                <button class="btn btn-primary btn-lg">
-                    <i class="fas fa-rocket"></i> Get Started
-                </button>
-                <button class="btn btn-secondary btn-lg">
-                    <i class="fas fa-book"></i> Documentation
-                </button>
+            <h1 class="section-title">Dashboard</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-wallet fa-2x text-primary"></i>
+                    <div class="stat-value">$4,287.50</div>
+                    <div class="stat-label">Wallet Balance</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line fa-2x text-success"></i>
+                    <div class="stat-value">+12.5%</div>
+                    <div class="stat-label">Monthly Growth</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users fa-2x text-warning"></i>
+                    <div class="stat-value">1,248</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-cube fa-2x text-accent"></i>
+                    <div class="stat-value">86</div>
+                    <div class="stat-label">Components</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Activity</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ETH Purchase</td>
+                                    <td>2023-06-15</td>
+                                    <td>+0.5 ETH</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Component Sale</td>
+                                    <td>2023-06-14</td>
+                                    <td>+$245.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>API Subscription</td>
+                                    <td>2023-06-12</td>
+                                    <td>-$49.99</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>MATIC Transfer</td>
+                                    <td>2023-06-10</td>
+                                    <td>-125 MATIC</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex" style="flex-direction: column; gap: 1rem;">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Create New Component
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Export Data
+                            </button>
+                            <button class="btn btn-accent">
+                                <i class="fas fa-share-alt"></i> Share Dashboard
+                            </button>
+                            <button class="btn btn-success">
+                                <i class="fas fa-cog"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Components Section -->
-    <section class="section">
+    <!-- Components Page -->
+    <section id="components" class="page-content">
         <div class="container">
-            <h2 class="section-title">UI Components</h2>
+            <h1 class="section-title">UI Components</h1>
+            <p class="text-center mb-2">Browse our complete collection of reusable UI components for Web3 applications.</p>
             
             <div class="components-grid">
                 <!-- Buttons Card -->
@@ -649,51 +1183,16 @@
                             <button class="btn btn-primary">Primary</button>
                             <button class="btn btn-secondary">Secondary</button>
                             <button class="btn btn-accent">Accent</button>
+                        </div>
+                        <div class="mt-2 d-flex" style="flex-wrap: wrap; gap: 10px;">
                             <button class="btn btn-success">Success</button>
                             <button class="btn btn-warning">Warning</button>
                             <button class="btn btn-danger">Danger</button>
                         </div>
-                        <div class="mt-2 d-flex" style="flex-wrap: wrap; gap: 10px;">
-                            <button class="btn btn-primary btn-sm">Small</button>
-                            <button class="btn btn-primary">Regular</button>
-                            <button class="btn btn-primary btn-lg">Large</button>
-                        </div>
                     </div>
                     <div class="card-footer">
-                        <span class="text-primary">Interactive</span>
-                        <span class="badge badge-primary">Verified</span>
-                    </div>
-                </div>
-
-                <!-- Alerts Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Alerts</h3>
-                        <div class="card-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-success">
-                            <i class="fas fa-check-circle"></i>
-                            <div>Transaction completed successfully!</div>
-                        </div>
-                        <div class="alert alert-warning">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div>Your wallet balance is running low.</div>
-                        </div>
-                        <div class="alert alert-danger">
-                            <i class="fas fa-times-circle"></i>
-                            <div>Transaction failed. Please try again.</div>
-                        </div>
-                        <div class="alert alert-info">
-                            <i class="fas fa-info-circle"></i>
-                            <div>New feature available in v2.1.</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="text-primary">Status Messages</span>
-                        <span class="badge badge-success">Live</span>
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-primary">v2.1</span>
                     </div>
                 </div>
 
@@ -707,140 +1206,366 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label class="form-label">Wallet Address</label>
-                            <input type="text" class="form-control" placeholder="0x1a2b3c4d5e6f7g8h9i0j">
+                            <input type="text" class="form-control" placeholder="Input field">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Network</label>
                             <select class="form-select">
-                                <option>Ethereum Mainnet</option>
-                                <option>Polygon</option>
-                                <option>Binance Smart Chain</option>
-                                <option>Avalanche</option>
-                                <option>Arbitrum</option>
+                                <option>Select option</option>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <div class="checkbox-group">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">Remember my wallet</label>
-                            </div>
-                            <div class="radio-group">
-                                <input type="radio" id="light" name="theme">
-                                <label for="light">Light Theme</label>
-                            </div>
-                            <div class="radio-group">
-                                <input type="radio" id="dark" name="theme" checked>
-                                <label for="dark">Dark Theme</label>
+                                <input type="checkbox" id="checkbox1">
+                                <label for="checkbox1">Checkbox</label>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="text-primary">Input Controls</span>
-                        <span class="badge badge-warning">Tested</span>
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-success">v2.0</span>
                     </div>
                 </div>
 
-                <!-- Progress & Badges Card -->
+                <!-- Navigation Card -->
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Progress & Badges</h3>
+                        <h3 class="card-title">Navigation</h3>
                         <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <div class="d-flex justify-between align-center mb-1">
-                                <span>Storage Usage</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-primary" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-between align-center mb-1">
-                                <span>API Requests</span>
-                                <span>40%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-warning" style="width: 40%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-between align-center mb-1">
-                                <span>Bandwidth</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-danger" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex" style="flex-wrap: wrap; gap: 8px; margin-top: 1.5rem;">
-                            <span class="badge badge-primary">Web3</span>
-                            <span class="badge badge-secondary">SaaS</span>
-                            <span class="badge badge-success">Active</span>
-                            <span class="badge badge-warning">Pending</span>
-                            <span class="badge badge-danger">Critical</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="text-primary">Visual Indicators</span>
-                        <span class="badge badge-primary">Updated</span>
-                    </div>
-                </div>
-
-                <!-- Tabs Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Tabs</h3>
-                        <div class="card-icon">
-                            <i class="fas fa-folder"></i>
+                            <i class="fas fa-bars"></i>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="tabs">
                             <div class="tab-header">
-                                <div class="tab-link active" data-tab="tab1">Dashboard</div>
-                                <div class="tab-link" data-tab="tab2">Analytics</div>
-                                <div class="tab-link" data-tab="tab3">Settings</div>
+                                <div class="tab-link active" data-tab="nav1">Tab 1</div>
+                                <div class="tab-link" data-tab="nav2">Tab 2</div>
+                                <div class="tab-link" data-tab="nav3">Tab 3</div>
                             </div>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="tab1">
-                                    <p>Welcome to your dashboard. Here you can manage your Web3 applications and view key metrics.</p>
+                                <div class="tab-pane active" id="nav1">
+                                    <p>Tab content 1</p>
                                 </div>
-                                <div class="tab-pane" id="tab2">
-                                    <p>Analytics data will appear here. Track usage, performance, and user engagement.</p>
+                                <div class="tab-pane" id="nav2">
+                                    <p>Tab content 2</p>
                                 </div>
-                                <div class="tab-pane" id="tab3">
-                                    <p>Configure your application settings, API keys, and notification preferences.</p>
+                                <div class="tab-pane" id="nav3">
+                                    <p>Tab content 3</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="text-primary">Navigation</span>
-                        <span class="badge badge-success">Working</span>
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-warning">Beta</span>
                     </div>
                 </div>
 
-                <!-- Modal Card -->
+                <!-- Data Display Card -->
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Modal</h3>
+                        <h3 class="card-title">Data Display</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <div>This is an info alert</div>
+                        </div>
+                        <div class="d-flex" style="flex-wrap: wrap; gap: 8px; margin-top: 1rem;">
+                            <span class="badge badge-primary">Badge</span>
+                            <span class="badge badge-success">Success</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-primary">v2.1</span>
+                    </div>
+                </div>
+
+                <!-- Feedback Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Feedback</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Success message</div>
+                        </div>
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>Warning message</div>
+                        </div>
+                        <div class="alert alert-danger">
+                            <i class="fas fa-times-circle"></i>
+                            <div>Error message</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-success">Stable</span>
+                    </div>
+                </div>
+
+                <!-- Overlay Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Overlay</h3>
                         <div class="card-icon">
                             <i class="fas fa-window-restore"></i>
                         </div>
                     </div>
                     <div class="card-body">
-                        <p>Click the button below to open a modal dialog.</p>
-                        <button class="btn btn-primary" id="openModalBtn">Open Modal</button>
+                        <p>Modals, dialogs, and popovers for user interactions.</p>
+                        <button class="btn btn-primary" id="openModalBtn2">Open Modal</button>
                     </div>
                     <div class="card-footer">
-                        <span class="text-primary">Dialog Windows</span>
-                        <span class="badge badge-primary">Ready</span>
+                        <a href="#" class="text-primary">View Details</a>
+                        <span class="badge badge-primary">v2.1</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Page -->
+    <section id="documentation" class="page-content">
+        <div class="container">
+            <h1 class="section-title">Documentation</h1>
+            
+            <div class="dashboard-grid">
+                <div class="doc-sidebar">
+                    <ul class="doc-nav">
+                        <li><a href="#" class="active">Getting Started</a></li>
+                        <li><a href="#">Installation</a></li>
+                        <li><a href="#">Components</a></li>
+                        <li><a href="#">Customization</a></li>
+                        <li><a href="#">Theming</a></li>
+                        <li><a href="#">Utilities</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="doc-content">
+                    <div class="doc-section">
+                        <h2>Getting Started with Web3SaaS UI</h2>
+                        <p>Welcome to the Web3SaaS UI component library documentation. This guide will help you get started with our collection of reusable UI components designed specifically for Web3 applications.</p>
+                        
+                        <h3>Introduction</h3>
+                        <p>Web3SaaS UI is a comprehensive component library that helps developers build consistent, accessible, and beautiful user interfaces for decentralized applications. Our components are built with modern web standards and are optimized for performance.</p>
+                        
+                        <h3>Prerequisites</h3>
+                        <p>Before you begin, make sure you have a basic understanding of:</p>
+                        <ul>
+                            <li>HTML, CSS, and JavaScript</li>
+                            <li>React or Vue.js (if using framework-specific versions)</li>
+                            <li>Web3 concepts (wallets, transactions, etc.)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-section">
+                        <h3>Quick Start</h3>
+                        <p>To quickly start using our components, include the following CSS and JS files in your project:</p>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <pre><code>&lt;link rel="stylesheet" href="https://web3saas.com/ui/v2.1/styles.css"&gt;
+&lt;script src="https://web3saas.com/ui/v2.1/scripts.js"&gt;&lt;/script&gt;</code></pre>
+                            </div>
+                        </div>
+                        
+                        <p>Then you can start using our components in your HTML:</p>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <pre><code>&lt;button class="btn btn-primary"&gt;
+    &lt;i class="fas fa-wallet"&gt;&lt;/i&gt; Connect Wallet
+&lt;/button&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-section">
+                        <h3>Component Examples</h3>
+                        <p>Here are some commonly used components:</p>
+                        
+                        <div class="components-grid" style="grid-template-columns: 1fr 1fr;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Wallet Connection</h4>
+                                </div>
+                                <div class="card-body">
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-wallet"></i> Connect Wallet
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Transaction Status</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="alert alert-success">
+                                        <i class="fas fa-check-circle"></i>
+                                        <div>Transaction completed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Page -->
+    <section id="pricing" class="page-content">
+        <div class="container">
+            <h1 class="section-title">Pricing Plans</h1>
+            <p class="text-center mb-2">Choose the plan that works best for your Web3 project</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Starter</div>
+                        <div class="pricing-price">$19</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Up to 10,000 API calls</li>
+                        <li>Basic components</li>
+                        <li>Community support</li>
+                        <li>1 project</li>
+                        <li>Basic analytics</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Professional</div>
+                        <div class="pricing-price">$49</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Up to 100,000 API calls</li>
+                        <li>All components</li>
+                        <li>Priority support</li>
+                        <li>5 projects</li>
+                        <li>Advanced analytics</li>
+                        <li>Custom themes</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;">Get Started</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Enterprise</div>
+                        <div class="pricing-price">$99</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Unlimited API calls</li>
+                        <li>All components + beta</li>
+                        <li>24/7 dedicated support</li>
+                        <li>Unlimited projects</li>
+                        <li>Advanced analytics</li>
+                        <li>White-label solutions</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Contact Sales</button>
+                </div>
+            </div>
+            
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h3 class="card-title">Frequently Asked Questions</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tabs">
+                        <div class="tab-header">
+                            <div class="tab-link active" data-tab="faq1">Billing</div>
+                            <div class="tab-link" data-tab="faq2">Features</div>
+                            <div class="tab-link" data-tab="faq3">Support</div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="faq1">
+                                <h4>Can I change plans later?</h4>
+                                <p>Yes, you can upgrade or downgrade your plan at any time. Changes will be prorated.</p>
+                                
+                                <h4>What payment methods do you accept?</h4>
+                                <p>We accept credit cards, PayPal, and cryptocurrency payments.</p>
+                            </div>
+                            <div class="tab-pane" id="faq2">
+                                <h4>Do you offer custom components?</h4>
+                                <p>Yes, custom component development is available for Enterprise customers.</p>
+                                
+                                <h4>Is there a free trial?</h4>
+                                <p>We offer a 14-day free trial for all plans with full access to features.</p>
+                            </div>
+                            <div class="tab-pane" id="faq3">
+                                <h4>What support options are available?</h4>
+                                <p>Starter plans include community support, Professional includes priority support, and Enterprise includes 24/7 dedicated support.</p>
+                                
+                                <h4>Do you offer onboarding assistance?</h4>
+                                <p>Yes, Professional and Enterprise plans include onboarding assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign In Page -->
+    <section id="signin" class="page-content">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Sign In</h2>
+                    <p>Access your Web3SaaS account</p>
+                </div>
+                
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" data-page="pricing">Sign up</a></p>
+                        <p><a href="#">Forgot your password?</a></p>
+                    </div>
+                </form>
+                
+                <div class="mt-2 text-center">
+                    <p>Or connect with your wallet</p>
+                    <button class="btn btn-secondary" style="width: 100%;" id="connectWalletBtn2">
+                        <i class="fas fa-wallet"></i> Connect Wallet
+                    </button>
                 </div>
             </div>
         </div>
@@ -884,7 +1609,7 @@
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#" data-page="documentation">Documentation</a></li>
                         <li><a href="#">Tutorials</a></li>
                         <li><a href="#">API Reference</a></li>
                         <li><a href="#">Community</a></li>
@@ -916,60 +1641,98 @@
     </footer>
 
     <script>
+        // Page Navigation
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                
+                if (pageId !== 'home' && pageId !== 'signin') {
+                    document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+                }
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
         // Tab functionality
         document.querySelectorAll('.tab-link').forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs and panes
-                document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                const tabContainer = tab.closest('.tabs');
+                
+                // Remove active class from all tabs and panes in this container
+                tabContainer.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+                tabContainer.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
                 
                 // Add active class to clicked tab and corresponding pane
                 tab.classList.add('active');
-                document.getElementById(tab.dataset.tab).classList.add('active');
+                tabContainer.querySelector(`#${tab.dataset.tab}`).classList.add('active');
             });
         });
 
         // Modal functionality
         const modal = document.getElementById('exampleModal');
         const openModalBtn = document.getElementById('openModalBtn');
+        const openModalBtn2 = document.getElementById('openModalBtn2');
         const closeModalBtn = document.getElementById('closeModalBtn');
         const connectBtn = document.getElementById('connectBtn');
         const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const connectWalletBtn2 = document.getElementById('connectWalletBtn2');
 
-        openModalBtn.addEventListener('click', () => {
+        function openModal() {
             modal.style.display = 'flex';
-        });
+        }
 
-        closeModalBtn.addEventListener('click', () => {
+        function closeModal() {
             modal.style.display = 'none';
-        });
+        }
 
-        connectWalletBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
+        if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+        if (openModalBtn2) openModalBtn2.addEventListener('click', openModal);
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if (connectWalletBtn) connectWalletBtn.addEventListener('click', openModal);
+        if (connectWalletBtn2) connectWalletBtn2.addEventListener('click', openModal);
 
-        connectBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            connectWalletBtn.innerHTML = '<i class="fas fa-check"></i> Connected';
-            connectWalletBtn.classList.remove('btn-primary');
-            connectWalletBtn.classList.add('btn-success');
+        function connectWallet() {
+            closeModal();
+            if (connectWalletBtn) {
+                connectWalletBtn.innerHTML = '<i class="fas fa-check"></i> Connected';
+                connectWalletBtn.classList.remove('btn-primary');
+                connectWalletBtn.classList.add('btn-success');
+            }
             
             // Show success alert
             const alert = document.createElement('div');
             alert.className = 'alert alert-success';
             alert.innerHTML = '<i class="fas fa-check-circle"></i> <div>Wallet connected successfully!</div>';
-            document.querySelector('.hero').after(alert);
+            document.querySelector('.page-content.active').prepend(alert);
             
             // Remove alert after 5 seconds
             setTimeout(() => {
                 alert.remove();
             }, 5000);
-        });
+        }
+
+        if (connectBtn) connectBtn.addEventListener('click', connectWallet);
 
         // Close modal when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.style.display = 'none';
+                closeModal();
             }
         });
 
@@ -995,6 +1758,18 @@
             });
         });
 
+        // Sign in form submission
+        const signinForm = document.getElementById('signin-form');
+        if (signinForm) {
+            signinForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // In a real app, you would handle authentication here
+                alert('Sign in functionality would be implemented here!');
+                // Redirect to dashboard
+                document.querySelector('[data-page="dashboard"]').click();
+            });
+        }
+
         // Progress bar animation on scroll
         const progressBars = document.querySelectorAll('.progress-bar');
         
@@ -1019,6 +1794,14 @@
 
         document.querySelectorAll('.card').forEach(card => {
             observer.observe(card);
+        });
+
+        // Initialize first tab content
+        document.querySelectorAll('.tabs').forEach(tabContainer => {
+            const firstTab = tabContainer.querySelector('.tab-link');
+            if (firstTab) {
+                firstTab.click();
+            }
         });
     </script>
 </body>
